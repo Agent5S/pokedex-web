@@ -1,10 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router } from "react-router-dom";
+
+import NavBar from './NavBar';
+import Display from './Display';
 
 class App extends React.Component {
     render() {
         return (
-            <h1>Hello react</h1>
+            <Router>
+                <NavBar />
+                <Display />
+            </Router>
         );
     }
 }
