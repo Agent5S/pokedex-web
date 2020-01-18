@@ -12,11 +12,16 @@ class App extends React.Component {
             pokemon: null
         }
 
-        this.changePokemon = this.onPokemonChange.bind(this);
+        this.changePokemon = this.changePokemon.bind(this);
+        this.clearPokemon = this.clearPokemon.bind(this);
     }
 
-    onPokemonChange(name) {
-        this.setState({ pokemon: name });
+    changePokemon(pokemon) {
+        this.setState({ pokemon: pokemon });
+    }
+
+    clearPokemon() {
+        this.setState({ pokemon: null })
     }
 
     render() {
@@ -29,8 +34,8 @@ class App extends React.Component {
                         <TopBar title='About' />
                     </Route>
                     <Route path='/'>
-                        <TopBar title={this.state.pokemon ?? 'Pokédex'} />
-                        <Dex pokemonChangeListener={this.changePokemon} pokemon={pokemon}/>
+                        <TopBar clearPokemon={this.clearPokemon}  title={pokemon ? pokemon.name : 'Pokédex'} />
+                        <Dex changePokemon={this.changePokemon} pokemon={pokemon}/>
                     </Route>
                 </Switch>
             </Router>

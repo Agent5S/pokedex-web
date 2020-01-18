@@ -7,11 +7,19 @@ export class Dex extends React.Component {
         super(props);
     }
 
+    renderDetail() {
+        if (this.props.pokemon) {
+            return (
+                <Detail pokemon={this.props.pokemon} />
+            );
+        }
+    }
+
     render() {
         return (
             <div>
-                <Master pokemonChangeListener={this.props.pokemonChangeListener}/>
-                <Detail name={this.props.pokemon}/>
+                <Master changePokemon={this.props.changePokemon}/>
+                {this.renderDetail()}
             </div>
         );
     }

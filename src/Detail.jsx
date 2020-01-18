@@ -4,7 +4,7 @@ export class Detail extends React.Component {
     render() {
         return (
             <div>
-                {this.props.name}
+                {this.props.pokemon.name}
             </div>
         );
     }

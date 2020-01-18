@@ -16,7 +16,7 @@ export class Master extends React.Component {
         .then(res => {
             const elements = res.map(
                 pokemon => <ListElement
-                    pokemonChangeListener={this.props.pokemonChangeListener}
+                    changePokemon={this.props.changePokemon}
                     key={pokemon.entry_number}
                     entry={pokemon}
                 />
