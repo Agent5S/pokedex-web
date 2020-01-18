@@ -4,20 +4,34 @@ import { ListElement } from './ListElement';
 export class Master extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            pokemon: [],
+            elements: []
+        }
     }
 
-    pokemon = ['Bulbasaur', 'Charizard', 'Squirtle'];
-    i = 0;
-    elements = this.pokemon.map(
-        pokemon => {
-            this.i++;
-            return <ListElement pokemonChangeListener={this.props.pokemonChangeListener} key={this.i} name={pokemon} />
-        })
+    componentDidMount() {
+        fetch('./pokemon.json')
+        .then(res => res.json())
+        .then(res => {
+            const elements = res.map(
+                pokemon => <ListElement
+                    pokemonChangeListener={this.props.pokemonChangeListener}
+                    key={pokemon.entry_number}
+                    entry={pokemon}
+                />
+            );
+            this.setState({
+                pokemon: res,
+                elements: elements
+            });
+        });
+    }
 
     render() {
         return (
             <div>
-                {this.elements}
+                {this.state.elements}
             </div>
         );
     }
