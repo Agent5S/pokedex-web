@@ -62,9 +62,10 @@ export class Dex extends React.Component {
     render() {
         const entries = this.state.entries;
         const pokemon = this.state.pokemon;
+        const className = 'master-detail' + (this.state.pokemonEntry ? ' populated' : '');
 
         return (
-            <div className="master-detail">
+            <div className={className}>
                 <TopBar
                     id="app-top-bar"
                     changeEntry={this.changeEntry}
