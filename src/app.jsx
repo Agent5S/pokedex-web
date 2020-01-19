@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Link, Switch, Route } from 'react-router-dom';
 import { TopBar } from './TopBar';
 import { Dex } from './Dex';
+import { About } from './About';
 
 
 class App extends React.Component {
@@ -12,6 +13,7 @@ class App extends React.Component {
                 <Switch>
                     <Route path='/about'>
                         <TopBar title='About' />
+                        <About />
                     </Route>
                     <Route path='/'>
                         <Dex />

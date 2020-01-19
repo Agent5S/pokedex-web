@@ -7,8 +7,6 @@ export class Detail extends React.Component {
         return (
             <div id={this.props.id} className="detail">
                 <div>
-                    {pokemon ? pokemon.getName('en') : ''}
-                    <br/>
                     {pokemon ? pokemon.getInformation('en') : ''}
                 </div>
             </div>

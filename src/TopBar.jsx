@@ -9,12 +9,16 @@ export class TopBar extends React.Component {
                 <h1>{this.props.title}</h1>
                 <nav>
                     <ul>
-                        <li>
-                            <Link to="/">Pokédex</Link>
-                        </li>
-                        <li>
-                            <Link to="/about">About</Link>
-                        </li>
+                        <Link to="/">
+                            <li>
+                                Pokédex
+                            </li>
+                        </Link>
+                        <Link to="/about">
+                            <li>
+                                About
+                            </li>
+                        </Link>
                     </ul>
                 </nav>
             </div>
