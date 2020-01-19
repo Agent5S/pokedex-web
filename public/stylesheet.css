@@ -1,0 +1,150 @@
+/** MARK: Reset */
+* {
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+a {
+    text-decoration: none;
+}
+
+/** MARK: Component styles */
+article ul {
+    padding-left: 40px;
+}
+
+.master-detail {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: 44px 1fr;
+    height: 100vh;
+}
+
+.master {
+    display: grid;
+    grid-template-rows: auto 1fr;
+}
+
+.master .list {
+    overflow-y: scroll;
+}
+
+.list-element {
+    padding: 5px;
+}
+
+.list-element:hover {
+    background-color: #eee;
+}
+
+.top-bar {
+    display: flex;
+    flex-direction: row;
+    height: 44px;
+    background-color: #ffcc55;
+    color: black;
+}
+
+.top-bar a {
+    color: inherit;
+}
+
+.top-bar button {
+    border-width: 0px;
+    width: 44px;
+    height: 44px;
+    font-size: 20pt;
+    display: none;
+    background-color: transparent;
+} 
+
+.top-bar button:hover {
+    background-color: #ddaa11;
+} 
+
+.top-bar h1 {
+    flex-grow: 1;
+}
+
+.top-bar ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+}
+
+.top-bar li {
+    height: 44px;
+    padding: 10px;
+    
+}
+
+.top-bar li:hover {
+    background-color: #ddaa11;
+    color: white;
+}
+
+/** MARK: App styles */
+@media screen and (min-width: 701px) {
+.master-detail {
+    grid-template-columns: auto 1fr;
+    grid-template-rows: 44px 1fr;
+}
+
+#app-top-bar {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+#app-master {
+    grid-column: 1;
+    grid-row: 1 / 3;
+}
+
+#app-detail {
+    grid-column: 2;
+    grid-row: 2;
+}
+}
+
+@media screen and (max-width: 700px) {
+.master-detail {
+    grid-template-columns: 1fr;
+    grid-template-rows: 44px 1fr;
+}
+
+#app-top-bar {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.master-detail:not(.populated) #app-top-bar h1::after {
+    content: 'Pokédex';
+}
+
+#app-master {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.master-detail #app-master .top-bar {
+    display: none;
+}
+
+.master-detail.populated .top-bar button {
+    display: unset;
+}
+
+.master-detail.populated #app-master {
+    display: none;
+}
+
+.master-detail.populated #app-detail {
+    grid-column: 1;
+    grid-row: 2;
+}
+}
