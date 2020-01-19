@@ -12,7 +12,12 @@ export class Master extends React.Component {
 
         return (
             <div id={this.props.id} className="master">
-                {elements}
+                <div className="top-bar">
+                    <h1>Pokédex</h1>
+                </div>
+                <div className="list">
+                    {elements}
+                </div>
             </div>
         );
     }
