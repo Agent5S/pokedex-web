@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 export class TopBar extends React.Component {
     render() {
         return (
-            <div>
-                <button onClick={() => this.props.clearPokemon()}>‹</button>
+            <div id={this.props.id} className="top-bar">
+                <button onClick={() => this.props.changeEntry(null)}>‹</button>
                 <h1>{this.props.title}</h1>
                 <nav>
                     <ul>

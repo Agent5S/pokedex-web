@@ -6,27 +6,7 @@ import { Dex } from './Dex';
 
 
 class App extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state  = {
-            pokemon: null
-        }
-
-        this.changePokemon = this.changePokemon.bind(this);
-        this.clearPokemon = this.clearPokemon.bind(this);
-    }
-
-    changePokemon(pokemon) {
-        this.setState({ pokemon: pokemon });
-    }
-
-    clearPokemon() {
-        this.setState({ pokemon: null })
-    }
-
     render() {
-        const pokemon = this.state.pokemon;
-
         return (
             <Router>
                 <Switch>
@@ -34,8 +14,7 @@ class App extends React.Component {
                         <TopBar title='About' />
                     </Route>
                     <Route path='/'>
-                        <TopBar clearPokemon={this.clearPokemon}  title={pokemon ? pokemon.name : 'Pokédex'} />
-                        <Dex changePokemon={this.changePokemon} pokemon={pokemon}/>
+                        <Dex />
                     </Route>
                 </Switch>
             </Router>
